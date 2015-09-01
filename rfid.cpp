@@ -20,28 +20,28 @@ String tag_yellow = String("7C00563C8C9A");
 String tag_red = String("7C005615F8C7");
 String tag_green = String("7C0055FAF023");
 
+void lightLED(int pin) {
+  digitalWrite(pin, HIGH);
+  delay(LED_DELAY);
+  digitalWrite(pin, LOW);
+}
+
 void checkTag(String readTag) {
   if (readTag.length() == 0) return;
     
   if (readTag.equals(tag_yellow)) {
   	Serial.println("\rmatched yellow");
-    //lightLED(LED_PIN1);
+    lightLED(LED_PIN1);
   } else if (readTag.equals(tag_red)) {
     Serial.println("\rmatched red");
-    //lightLED(LED_PIN2);
+    lightLED(LED_PIN2);
   } else if (readTag.equals(tag_green)) {
     Serial.println("\rmatched green");
-    //lightLED(LED_PIN3);
+    lightLED(LED_PIN3);
   } else {
   	Serial.print("I don't recognize this tag: "); 
     Serial.println(readTag);
   }
-}
-
-void lightLED(int pin) {
-  digitalWrite(pin, HIGH);
-  delay(LED_DELAY);
-  digitalWrite(pin, LOW);
 }
 
 void clearTag(char *tag) {
@@ -52,9 +52,9 @@ void setup() {
 	Serial.begin(9600);
   Serial1.begin(9600);
 
-//   pinMode(LED_PIN1, OUTPUT);
-//   pinMode(LED_PIN2, OUTPUT);
-//   pinMode(LED_PIN3, OUTPUT);
+   pinMode(LED_PIN1, OUTPUT);
+   pinMode(LED_PIN2, OUTPUT);
+   pinMode(LED_PIN3, OUTPUT);
 }
 
 void loop() {
