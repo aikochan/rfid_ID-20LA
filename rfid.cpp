@@ -27,8 +27,7 @@ void lightLED(int pin) {
 }
 
 void checkTag(String readTag) {
-  if (readTag.length() == 0) return;
-    
+  if (readTag.length() == 0) return;    
   if (readTag.equals(tag_yellow)) {
   	Serial.println("\rmatched yellow");
     lightLED(LED_PIN1);
@@ -52,9 +51,9 @@ void setup() {
 	Serial.begin(9600);
   Serial1.begin(9600);
 
-   pinMode(LED_PIN1, OUTPUT);
-   pinMode(LED_PIN2, OUTPUT);
-   pinMode(LED_PIN3, OUTPUT);
+  pinMode(LED_PIN1, OUTPUT);
+  pinMode(LED_PIN2, OUTPUT);
+  pinMode(LED_PIN3, OUTPUT);
 }
 
 void loop() {
